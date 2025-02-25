@@ -27,7 +27,7 @@ public class CategoriaService {
 
     // Atualizar uma categoria existente
     @Transactional
-    public void update(Categoria categoria) {
+    public Categoria update(Categoria categoria) {
         Categoria categoriaToUpdate = findById(categoria.getId());
 
         if (categoria.getDescricao() != null) {
@@ -38,7 +38,7 @@ public class CategoriaService {
             categoriaToUpdate.setAtividades(categoria.getAtividades());
         }
 
-        categoriaRepository.save(categoriaToUpdate);
+        return categoriaRepository.save(categoriaToUpdate);
     }
 
     // Deletar uma categoria pelo ID

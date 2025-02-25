@@ -20,11 +20,11 @@ public class AtividadeService {
 
     @Transactional
     public Atividade create(Atividade atividade){
-        return  atividadeRepository.save(atividade);
+        return atividadeRepository.save(atividade);
     }
 
     @Transactional
-    public void update(Atividade atividade) {
+    public Atividade update(Atividade atividade) {
         Atividade atividadeToUpdate = findById(atividade.getId());
 
 
@@ -52,7 +52,7 @@ public class AtividadeService {
             atividadeToUpdate.setBlocos(atividade.getBlocos());
         }
 
-        atividadeRepository.save(atividadeToUpdate);
+        return atividadeRepository.save(atividadeToUpdate);
 
     }
 
