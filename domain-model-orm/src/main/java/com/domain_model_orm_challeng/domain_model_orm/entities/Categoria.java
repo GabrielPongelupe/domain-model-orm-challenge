@@ -1,5 +1,6 @@
 package com.domain_model_orm_challeng.domain_model_orm.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Categoria {
     private String descricao;
 
     @OneToMany(mappedBy = "categoria")
+    @JsonIgnore
     private List<Atividade> atividades = new ArrayList<>();
 
     // Construtor padrão (sem parâmetros)

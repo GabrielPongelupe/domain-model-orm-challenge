@@ -1,5 +1,6 @@
 package com.domain_model_orm_challeng.domain_model_orm.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -22,9 +23,11 @@ public class Atividade {
     @JoinTable(name = "tb_participantes_atividade",
             joinColumns = @JoinColumn(name = "atividade_id"),
             inverseJoinColumns = @JoinColumn(name = "participante_id"))
+    @JsonIgnore
     private Set<Participante> participantes;
 
     @OneToMany(mappedBy = "atividade")
+    @JsonIgnore
     private Set<Bloco> blocos;
 
     @ManyToOne
