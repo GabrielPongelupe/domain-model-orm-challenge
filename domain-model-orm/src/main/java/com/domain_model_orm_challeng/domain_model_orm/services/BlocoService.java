@@ -18,12 +18,12 @@ public class BlocoService {
     }
 
     @Transactional
-    public void create(Bloco bloco) {
-        blocoRepository.save(bloco);
+    public Bloco create(Bloco bloco) {
+        return blocoRepository.save(bloco);
     }
 
     @Transactional
-    public void update(Bloco bloco) {
+    public Bloco update(Bloco bloco) {
         Bloco blocoToUpdate = findById(bloco.getId());
 
         if (bloco.getInicio() != null) {
@@ -38,7 +38,7 @@ public class BlocoService {
             blocoToUpdate.setAtividade(bloco.getAtividade());
         }
 
-        blocoRepository.save(blocoToUpdate);
+        return blocoRepository.save(blocoToUpdate);
     }
 
     @Transactional

@@ -19,14 +19,14 @@ public class ParticipanteService {
     }
 
     @Transactional
-    public void update(@NonNull Participante participante) {
+    public Participante update(@NonNull Participante participante) {
         Participante participanteToUpdate = findById(participante.getId());
 
         participanteToUpdate.setNome(participante.getNome());
         participanteToUpdate.setEmail(participante.getEmail());
         participanteToUpdate.setAtividades(participante.getAtividades());
 
-        participanteRepository.save(participanteToUpdate);
+        return participanteRepository.save(participanteToUpdate);
     }
 
     @Transactional

@@ -1,5 +1,6 @@
 package com.domain_model_orm_challeng.domain_model_orm.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
@@ -18,6 +19,7 @@ public class Participante {
     private String email;
 
     @ManyToMany(mappedBy = "participantes")
+    @JsonIgnore
     private Set<Atividade> atividades = new HashSet<>();
 
     // Construtor padrão (sem parâmetros)
