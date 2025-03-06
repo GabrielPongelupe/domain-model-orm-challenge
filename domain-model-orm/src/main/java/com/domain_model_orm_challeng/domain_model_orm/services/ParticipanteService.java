@@ -13,9 +13,12 @@ public class ParticipanteService {
     @Autowired
     private ParticipanteRepository participanteRepository;
 
+    @Transactional
     public Participante findById(Integer id){
-        return participanteRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Participante não encontrado")); // Exceção personalizada
+        Participante participante = participanteRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Participante não encontrado"));
+        participante.getAtividades().size();
+        return participante;
     }
 
     @Transactional

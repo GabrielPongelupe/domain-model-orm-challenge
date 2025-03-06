@@ -19,7 +19,6 @@ public class Participante {
     private String email;
 
     @ManyToMany(mappedBy = "participantes")
-    @JsonIgnore
     private Set<Atividade> atividades = new HashSet<>();
 
     // Construtor padrão (sem parâmetros)

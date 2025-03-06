@@ -13,9 +13,11 @@ public class AtividadeService {
     @Autowired
     private AtividadeRepository atividadeRepository;
 
+
     public Atividade findById(Integer id) {
         return atividadeRepository.findById(id).
                 orElseThrow(() -> new EntityNotFoundException("Atividade não encontrada"));
+
     }
 
     @Transactional
